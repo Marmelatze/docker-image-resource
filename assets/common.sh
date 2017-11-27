@@ -54,7 +54,7 @@ start_docker() {
   fi
 
   local mtu=$(cat /sys/class/net/$(ip route get 8.8.8.8|awk '{ print $5 }')/mtu)
-  local server_args="--mtu ${mtu}"
+  local server_args="--mtu ${mtu} --bip 203.0.113.1/24"
   local registry=""
 
   for registry in $1; do
